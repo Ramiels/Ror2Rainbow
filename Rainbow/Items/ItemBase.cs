@@ -37,19 +37,19 @@ namespace Rainbow.Items
 		protected void CreateItem()
 		{
 			// Create the itemdef and populate it with data
-			ItemDef = ScriptableObject.CreateInstance<ItemDef>();
-			ItemDef.name = "ITEM_" + ItemLangTokenName;
-			ItemDef.nameToken = "ITEM_" + ItemLangTokenName + "_NAME";
-			ItemDef.pickupToken = "ITEM_" + ItemLangTokenName + "_PICKUP";
-			ItemDef.descriptionToken = "ITEM_" + ItemLangTokenName + "_DESCRIPTION";
-			ItemDef.loreToken = "ITEM_" + ItemLangTokenName + "_LORE";
-			ItemDef.pickupModelPrefab = ItemModel;
-			ItemDef.pickupIconSprite = ItemIcon;
-			ItemDef.hidden = false;
-			ItemDef.canRemove = CanRemove;
-			ItemDef.tier = Tier;
-			ItemDef.tags = ItemTags;
-			var itemDisplayRuleDict = CreateItemDisplayRules();
+			ItemDef						= ScriptableObject.CreateInstance<ItemDef>();
+			ItemDef.name				= "ITEM_" + ItemLangTokenName;
+			ItemDef.nameToken			= "ITEM_" + ItemLangTokenName + "_NAME";
+			ItemDef.pickupToken			= "ITEM_" + ItemLangTokenName + "_PICKUP";
+			ItemDef.descriptionToken	= "ITEM_" + ItemLangTokenName + "_DESCRIPTION";
+			ItemDef.loreToken			= "ITEM_" + ItemLangTokenName + "_LORE";
+			ItemDef.pickupModelPrefab	= ItemModel;
+			ItemDef.pickupIconSprite	= ItemIcon;
+			ItemDef.hidden				= false;
+			ItemDef.canRemove			= CanRemove;
+			ItemDef.tier				= Tier;
+			ItemDef.tags				= ItemTags;
+			var itemDisplayRuleDict		= CreateItemDisplayRules();
 			// Add the item with our data
 			ItemAPI.Add(new CustomItem(ItemDef, itemDisplayRuleDict));
 		}
