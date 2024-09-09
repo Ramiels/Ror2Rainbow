@@ -8,8 +8,8 @@ namespace Rainbow.Items
 	public abstract class ItemBase
 	{
 		// Localization data
-		public abstract string ItemName { get; }
 		public abstract string ItemLangTokenName { get; }
+		public abstract string ItemName { get; }
 		public abstract string ItemPickupDesc { get; }
 		public abstract string ItemFullDescription { get; }
 		public abstract string ItemLore { get; }

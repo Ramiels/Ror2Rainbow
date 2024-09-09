@@ -8,8 +8,8 @@ namespace Rainbow.Items
 {
 	public class SafetyScissors : ItemBase
 	{
-		public override string ItemName				=> "ITEM_SAFETY_SCISSORS_NAME";
 		public override string ItemLangTokenName	=> "SAFETY_SCISSORS";
+		public override string ItemName				=> "ITEM_SAFETY_SCISSORS_NAME";
 		public override string ItemPickupDesc		=> "ITEM_SAFETY_SCISSORS_PICKUP";
 		public override string ItemFullDescription	=> "ITEM_SAFETY_SCISSORS_DESC";
 		public override string ItemLore				=> "ITEM_SAFETY_SCISSORS_LORE";

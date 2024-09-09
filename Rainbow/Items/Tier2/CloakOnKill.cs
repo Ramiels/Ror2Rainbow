@@ -8,8 +8,8 @@ namespace Rainbow.Items
 {
 	public class CloakOnKill : ItemBase
 	{
-		public override string ItemName				=> "ITEM_CLOAKONKILL_NAME";
 		public override string ItemLangTokenName	=> "CLOAKONKILL";
+		public override string ItemName				=> "ITEM_CLOAKONKILL_NAME";
 		public override string ItemPickupDesc		=> "ITEM_CLOAKONKILL_PICKUP";
 		public override string ItemFullDescription	=> "ITEM_CLOAKONKILL_DESC";
 		public override string ItemLore				=> "ITEM_CLOAKONKILL_LORE";
