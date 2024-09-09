@@ -21,7 +21,7 @@ namespace Rainbow.Items
 			var rules = new ItemDisplayRuleDict();
 			return rules;
 		}
-
+			
 		// Hook shit
 		public override void Hooks() {
 			RecalculateStatsAPI.GetStatCoefficients += (sender, args) => {
