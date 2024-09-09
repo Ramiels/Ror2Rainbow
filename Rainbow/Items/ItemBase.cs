@@ -23,7 +23,7 @@ namespace Rainbow.Items
 		}
 		// Item Data
 		public abstract ItemTier Tier { get; }
-		public virtual ItemTag[] ItemTags { get; }
+		public virtual ItemTag[] ItemTags { get; } = [];
 		public virtual bool CanRemove { get; } = true;
 		public virtual bool Hidden { get; } = false;
 		public ItemDef ItemDef;
@@ -38,7 +38,7 @@ namespace Rainbow.Items
 		{
 			// Create the itemdef and populate it with data
 			ItemDef						= ScriptableObject.CreateInstance<ItemDef>();
-			ItemDef.name				= "ITEM_" + ItemLangTokenName;
+			ItemDef.name				= ItemLangTokenName;
 			ItemDef.nameToken			= "ITEM_" + ItemLangTokenName + "_NAME";
 			ItemDef.pickupToken			= "ITEM_" + ItemLangTokenName + "_PICKUP";
 			ItemDef.descriptionToken	= "ITEM_" + ItemLangTokenName + "_DESCRIPTION";

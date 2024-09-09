@@ -14,6 +14,7 @@ namespace Rainbow.Items
 		public override string ItemFullDescription	=> "ITEM_SAFETY_SCISSORS_DESC";
 		public override string ItemLore				=> "ITEM_SAFETY_SCISSORS_LORE";
 		public override ItemTier Tier				=> ItemTier.Tier1;
+		public override ItemTag[] ItemTags			=> [];
 		public override GameObject ItemModel		=> Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
 		public override Sprite ItemIcon				=> Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/MiscIcons/texMysteryIcon.png").WaitForCompletion();
 		public override ItemDisplayRuleDict CreateItemDisplayRules() {
