@@ -328,8 +328,6 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-Rainbow/Rainbow.csproj
-Rainbow/Rainbow.csproj
-*.csproj
-Rainbow/Rainbow.csproj
-*.csproj
+
+#WHY THE FUCK ISN'T THIS WORKING
+Rainbow/Rainbow.csproj 
