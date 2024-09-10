@@ -4,6 +4,8 @@ using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
+// DEFAULT EXAMPLE ITEM TODO OBLITERATE
+
 namespace Rainbow.Items
 {
 	public class CloakOnKill : ItemBase
