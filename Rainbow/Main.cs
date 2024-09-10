@@ -55,8 +55,6 @@ namespace Rainbow
 				Rand = new System.Random((int)(Run.instance.seed % int.MaxValue));
 				// Log.Info("Run started with seed " + Run.instance.seed);
 			};
-
-
 		}
 	}
 }

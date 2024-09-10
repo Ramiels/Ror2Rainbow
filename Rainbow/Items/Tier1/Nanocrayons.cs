@@ -26,8 +26,7 @@ namespace Rainbow.Items
 		}
 
 		// Hook shit
-		public override void Hooks()
-		{
+		public override void Hooks() {
 			// Grant +5% HP per stack
 			RecalculateStatsAPI.GetStatCoefficients += (sender, args) => {
 				if (sender && sender.inventory) {
@@ -43,16 +42,12 @@ namespace Rainbow.Items
 			Inventory.onServerItemGiven += (inventory, item, count) => {
 				var playerCount = inventory.GetItemCount(ItemDef);
 				if (item == ItemDef.itemIndex && playerCount >= 4)	{
-					Log.Debug("Pre-math");
 					int remainder;
 					int quotient = Math.DivRem(playerCount, 4, out remainder);
-					Log.Debug("Pre-removal");
 					inventory.RemoveItem(ItemDef, playerCount - remainder);
-					Log.Debug("Pre-greenlist");
 					ItemDef[] greenList = ItemCatalog.allItemDefs.Where(itemDef => itemDef.tier == ItemTier.Tier2).ToArray();
 					while (quotient > 0) {
 						quotient--;
-						Log.Debug("Pre-give");
 						inventory.GiveItem(greenList[Main.Rand.Next(0, greenList.Length)]);
 					}
 				}
@@ -60,8 +55,7 @@ namespace Rainbow.Items
 		}
 
 		// Initialize the item
-		public override void Init()
-		{
+		public override void Init() {
 			CreateLang();
 			CreateItem();
 			Hooks();
