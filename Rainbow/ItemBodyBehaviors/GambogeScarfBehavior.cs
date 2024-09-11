@@ -10,10 +10,11 @@ namespace Rainbow.ItemBodyBehaviors
 {
 	internal class GambogeScarfBehavior : BaseItemBodyBehavior
 	{
-		[BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
+		[ItemDefAssociation(useOnServer = true, useOnClient = false)]
+		// [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
 		private static ItemDef GetItemDef()
 		{
-			return Rainbow.Items.GambogeScarf;
+			return new Rainbow.Items.GambogeScarf().ItemDef;
 		}
 
 		private bool providingBuff;

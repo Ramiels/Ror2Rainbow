@@ -1,0 +1,40 @@
+{
+	"strings": {
+		"ITEM_CLOAKONKILL_NAME": "FALLBACK DEFAULT LANGUAGE Cuthroat's Garb",
+		"ITEM_CLOAKONKILL_PICKUP": "FALLBACK DEFAULT LANGUAGE Chance to cloak on kill",
+		"ITEM_CLOAKONKILL_DESC": "FALLBACK DEFAULT LANGUAGE Whenever you <style=cIsDamage>kill an enemy</style>, you have a <style=cIsUtility>50%</style> chance to cloak for <style=cIsUtility>4s</style> <style=cStack>(+1s per stack)</style>.",
+		"ITEM_CLOAKONKILL_LORE": "FALLBACK DEFAULT LANGUAGE Those who visit in the night are either praying for a favour, or preying on a neighbour."
+	},
+	"FR": {
+		"ITEM_CLOAKONKILL_NAME": "FRENCH Cuthroat's Garb",
+		"ITEM_CLOAKONKILL_PICKUP": "FRENCH Chance to cloak on kill",
+		"ITEM_CLOAKONKILL_DESC": "FRENCH Whenever you <style=cIsDamage>kill an enemy</style>, you have a <style=cIsUtility>50%</style> chance to cloak for <style=cIsUtility>4s</style> <style=cStack>(+1s per stack)</style>.",
+		"ITEM_CLOAKONKILL_LORE": "FRENCH Those who visit in the night are either praying for a favour, or preying on a neighbour."
+	},
+	"en": {
+		"ITEM_CLOAKONKILL_NAME": "ENGLISH Cuthroat's Garb",
+		"ITEM_CLOAKONKILL_PICKUP": "ENGLISH Chance to cloak on kill",
+		"ITEM_CLOAKONKILL_DESC": "ENGLISH Whenever you <style=cIsDamage>kill an enemy</style>, you have a <style=cIsUtility>50%</style> chance to cloak for <style=cIsUtility>4s</style> <style=cStack>(+1s per stack)</style>.",
+		"ITEM_CLOAKONKILL_LORE": "ENGLISH Those who visit in the night are either praying for a favour, or preying on a neighbour.",
+		"ITEM_SafetyScissors_NAME": "Safety Scissors",
+		"ITEM_SafetyScissors_PICKUP": "Slightly increase armor and damage.",
+		"ITEM_SafetyScissors_DESC": "Increase armor by <style=cIsUtility>6</style> <style=cStack>(+6 per stack)</style> and damage by <style=cIsDamage>6%</style> <style=cStack>(+6% per stack)</style>.",
+		"ITEM_SafetyScissors_LORE": "Placeholder! Lore will come later <3.",
+		"ITEM_Nanocrayons_NAME": "Nanocrayons",
+		"ITEM_Nanocrayons_PICKUP": "Slightly increase maximum health. Turns into another item at 4 stacks.",
+		"ITEM_Nanocrayons_DESC": "Increase <style=cIsHealth>maximum health</style> by <style=cIsHealth>5%</style> <style=cStack>(+5% per stack)</style>. <style=cIsUtility>Upgrades</style> into a random item at 4 stacks.",
+		"ITEM_Nanocrayons_LORE": "Placeholder! Lore will come later <3.",
+		"ITEM_GambogeScarf_NAME": "Gamboge Scarf",
+		"ITEM_GambogeScarf_PICKUP": "Charge up massive attack speed out of combat.",
+		"ITEM_GambogeScarf_DESC": "While outside combat gain <style=cIsDamage>Courage</style>, increasing <style=cIsDamage>attack speed</style> by <style=cIsDamage>7%</style>. \nYou can have up to <style=cIsUtility>10</style> <style=cStack>(+4 per stack)</style> stacks of <style=cIsDamage>Courage</style> which all accumulate over <style=cIsUtility>10</style> seconds while out of combat. \nA stack of <style=cIsDamage>Courage</style> is lost on attacking.",
+		"ITEM_GambogeScarf_LORE": "Placeholder! Lore will come later <3.",
+		"ITEM_SurveyIncentives_NAME": "Torn Reciept",
+		"ITEM_SurveyIncentives_PICKUP": "Charge up massive attack speed out of combat.",
+		"ITEM_SurveyIncentives_DESC": "While outside combat gain <style=cIsDamage>Courage</style>, increasing <style=cIsDamage>attack speed</style> by <style=cIsDamage>7%</style>. \nYou can have up to <style=cIsUtility>10</style> <style=cStack>(+4 per stack)</style> stacks of <style=cIsDamage>Courage</style> which all accumulate over <style=cIsUtility>10</style> seconds while out of combat. \nA stack of <style=cIsDamage>Courage</style> is lost on attacking.",
+		"ITEM_SurveyIncentives_LORE": "Placeholder! Lore will come later <3.",
+		"ITEM_PrayerGem_NAME": "Prayer in a Prism",
+		"ITEM_PrayerGem_PICKUP": "Increase ALL of your stats when you complete a shrine.",
+		"ITEM_PrayerGem_DESC": "Using a <style=cShrine>shrine</style> increases <style=cIsUtility>ALL</style> stats by <style=cIsUtility>2%</style> <style=cStack>(+2% per stack)</style>.",
+		"ITEM_PrayerGem_LORE": "Placeholder! Lore will come later <3.",
+	}
+}

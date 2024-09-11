@@ -8,11 +8,11 @@ namespace Rainbow.Items
 {
 	public class SafetyScissors : ItemBase
 	{
-		public override string ItemLangTokenName	=> "SAFETY_SCISSORS";
-		public override string ItemName				=> "ITEM_SAFETY_SCISSORS_NAME";
-		public override string ItemPickupDesc		=> "ITEM_SAFETY_SCISSORS_PICKUP";
-		public override string ItemFullDescription	=> "ITEM_SAFETY_SCISSORS_DESC";
-		public override string ItemLore				=> "ITEM_SAFETY_SCISSORS_LORE";
+		public override string ItemLangTokenName	=> "SafetyScissors";
+		public override string ItemName				=> "ITEM_SafetyScissors_NAME";
+		public override string ItemPickupDesc		=> "ITEM_SafetyScissors_PICKUP";
+		public override string ItemFullDescription	=> "ITEM_SafetyScissors_DESC";
+		public override string ItemLore				=> "ITEM_SafetyScissors_LORE";
 		public override ItemTier Tier				=> ItemTier.Tier1;
 		public override ItemTag[] ItemTags			=> [];
 		public override GameObject ItemModel		=> Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();

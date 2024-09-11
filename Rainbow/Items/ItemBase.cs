@@ -17,9 +17,13 @@ namespace Rainbow.Items
 		protected void CreateLang()
 		{
 			LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_NAME", ItemName);
+			Log.Debug("ITEM_" + ItemLangTokenName + "_NAME");
 			LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_PICKUP", ItemPickupDesc);
+			Log.Debug("ITEM_" + ItemLangTokenName + "_PICKUP");
 			LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_DESCRIPTION", ItemFullDescription);
+			Log.Debug("ITEM_" + ItemLangTokenName + "_DESCRIPTION");
 			LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_LORE", ItemLore);
+			Log.Debug("ITEM_" + ItemLangTokenName + "_LORE");
 		}
 		// Item Data
 		public abstract ItemTier Tier { get; }

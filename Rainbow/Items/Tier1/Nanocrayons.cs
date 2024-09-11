@@ -10,11 +10,11 @@ namespace Rainbow.Items
 {
 	public class Nanocrayons : ItemBase
 	{
-		public override string ItemLangTokenName	=> "NANOCRAYONS";
-		public override string ItemName				=> "ITEM_NANOCRAYONS_NAME";
-		public override string ItemPickupDesc		=> "ITEM_NANOCRAYONS_PICKUP";
-		public override string ItemFullDescription	=> "ITEM_NANOCRAYONS_DESC";
-		public override string ItemLore				=> "ITEM_NANOCRAYONS_LORE";
+		public override string ItemLangTokenName	=> "Nanocrayons";
+		public override string ItemName				=> "ITEM_Nanocrayons_NAME";
+		public override string ItemPickupDesc		=> "ITEM_Nanocrayons_PICKUP";
+		public override string ItemFullDescription	=> "ITEM_Nanocrayons_DESC";
+		public override string ItemLore				=> "ITEM_Nanocrayons_LORE";
 		public override ItemTier Tier				=> ItemTier.Tier1;
 		public override ItemTag[] ItemTags			=> [];
 		public override GameObject ItemModel		=> Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
