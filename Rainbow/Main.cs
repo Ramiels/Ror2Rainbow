@@ -8,9 +8,11 @@ using Rainbow.Items;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+[assembly: HG.Reflection.SearchableAttribute.OptIn]
 
 namespace Rainbow
 {
+    // Does.. something
     // Add Dependecies I think?
     [BepInDependency(ItemAPI.PluginGUID)]
     [BepInDependency(LanguageAPI.PluginGUID)]

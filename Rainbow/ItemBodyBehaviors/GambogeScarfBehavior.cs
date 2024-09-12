@@ -12,10 +12,8 @@ namespace Rainbow.ItemBodyBehaviors
 	{
 		[ItemDefAssociation(useOnServer = true, useOnClient = false)]
 		// [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
-		private static ItemDef GetItemDef()
-		{
-			return new Rainbow.Items.GambogeScarf().ItemDef;
-		}
+		 
+		public static ItemDef GetItemDef() => Rainbow.Items.GambogeScarf.ItemDef;
 
 		private bool providingBuff;
 
@@ -38,6 +36,7 @@ namespace Rainbow.ItemBodyBehaviors
 			this.providingBuff = shouldProvideBuff;
 			if (this.providingBuff)
 			{
+				Log.Debug("HEY WE'RE DOING SHIT 11111111");
 				base.body.AddBuff(RoR2Content.Buffs.WhipBoost);
 				EffectData effectData = new EffectData();
 				effectData.origin = base.body.corePosition;
