@@ -24,6 +24,7 @@ namespace Rainbow.ItemBodyBehaviors
 		}
 		private void FixedUpdate()
 		{
+			Log.Debug("WORK!!! I BEG OF YOU!!");
 			this.SetProvidingBuff(base.body.outOfCombat);
 		}
 
