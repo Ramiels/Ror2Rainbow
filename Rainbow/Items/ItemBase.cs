@@ -16,10 +16,12 @@ namespace Rainbow.Items
 		// Create localizations
 		protected void CreateLang()
 		{
-			LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_NAME", ItemName);
-			LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_PICKUP", ItemPickupDesc);
-			LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_DESCRIPTION", ItemFullDescription);
-			LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_LORE", ItemLore);
+			/*
+				LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_NAME", ItemName);
+				LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_PICKUP", ItemPickupDesc);
+				LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_DESCRIPTION", ItemFullDescription);
+				LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_LORE", ItemLore);
+			*/
 		}
 		// Item Data
 		public abstract ItemTier Tier { get; }
@@ -45,10 +47,15 @@ namespace Rainbow.Items
 			ItemDef.loreToken			= "ITEM_" + ItemLangTokenName + "_LORE";
 			ItemDef.pickupModelPrefab	= ItemModel;
 			ItemDef.pickupIconSprite	= ItemIcon;
+			ItemDef.tier				= Tier;
 			ItemDef.hidden				= false;
 			ItemDef.canRemove			= CanRemove;
-			ItemDef.tier				= Tier;
 			ItemDef.tags				= ItemTags;
+			// Gross haxx, but possibly necessary
+			#pragma warning disable CS0618 // Type or member is obsolete
+			ItemDef.deprecatedTier		= Tier;
+			#pragma warning restore CS0618 // Type or member is obsolete
+
 			var itemDisplayRuleDict		= CreateItemDisplayRules();
 			// Add the item with our data
 			ItemAPI.Add(new CustomItem(ItemDef, itemDisplayRuleDict));

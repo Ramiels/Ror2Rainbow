@@ -36,7 +36,7 @@ namespace Rainbow
         public const string PluginName		= "Rainbow";
         public const string PluginVersion	= "0.1.0";
 
-		public List<ItemBase> Items = new();
+		public List<ItemBase> Items = [];
 		public static System.Random Rand = new();
 
 		public void Awake()
