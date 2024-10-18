@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using UnityEngine;
 
+[assembly: HG.Reflection.SearchableAttribute.OptIn]
 namespace Rainbow.ItemBodyBehaviors
 {
 	internal class GambogeScarfBehavior : BaseItemBodyBehavior
@@ -13,7 +14,7 @@ namespace Rainbow.ItemBodyBehaviors
 		[ItemDefAssociation(useOnServer = true, useOnClient = false)]
 		// [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
 		 
-		public static ItemDef GetItemDef() => Rainbow.Items.GambogeScarf.ItemDef;
+		public static ItemDef GetItemDef() => Rainbow.Items.AttackSpeedScarf.ItemDef;
 
 		private bool providingBuff;
 
@@ -24,7 +25,6 @@ namespace Rainbow.ItemBodyBehaviors
 		}
 		private void FixedUpdate()
 		{
-			Log.Debug("WORK!!! I BEG OF YOU!!");
 			this.SetProvidingBuff(base.body.outOfCombat);
 		}
 
@@ -60,3 +60,5 @@ namespace Rainbow.ItemBodyBehaviors
 
 	}
 }
+
+

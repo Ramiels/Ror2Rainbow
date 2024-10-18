@@ -8,13 +8,9 @@ using UnityEngine.AddressableAssets;
 
 namespace Rainbow.Items
 {
-	public class Nanocrayons : ItemBase
+	public class UpgradeSelf : ItemBase
 	{
-		public override string ItemLangTokenName	=> "Nanocrayons";
-		public override string ItemName				=> "ITEM_Nanocrayons_NAME";
-		public override string ItemPickupDesc		=> "ITEM_Nanocrayons_PICKUP";
-		public override string ItemFullDescription	=> "ITEM_Nanocrayons_DESC";
-		public override string ItemLore				=> "ITEM_Nanocrayons_LORE";
+		public override string ItemLangTokenName	=> "UpgradeSelf";
 		public override ItemTier Tier				=> ItemTier.Tier1;
 		public override ItemTag[] ItemTags			=> [];
 		public override GameObject ItemModel		=> Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
@@ -41,7 +37,9 @@ namespace Rainbow.Items
 			// TODO: V/S-FX
 			Inventory.onServerItemGiven += (inventory, item, count) => {
 				var playerCount = inventory.GetItemCount(ItemDef);
-				if (item == ItemDef.itemIndex && playerCount >= 4)	{
+				if (item == ItemDef.itemIndex && playerCount >= 4)
+				{
+					Log.Debug("Items go bye");
 					int remainder;
 					int quotient = Math.DivRem(playerCount, 4, out remainder);
 					inventory.RemoveItem(ItemDef, playerCount - remainder);
@@ -56,7 +54,6 @@ namespace Rainbow.Items
 
 		// Initialize the item
 		public override void Init() {
-			CreateLang();
 			CreateItem();
 			Hooks();
 		}

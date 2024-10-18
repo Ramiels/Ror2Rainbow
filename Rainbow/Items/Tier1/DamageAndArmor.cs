@@ -6,13 +6,9 @@ using UnityEngine.AddressableAssets;
 
 namespace Rainbow.Items
 {
-	public class SafetyScissors : ItemBase
+	public class DamageAndArmor : ItemBase
 	{
-		public override string ItemLangTokenName	=> "SafetyScissors";
-		public override string ItemName				=> "ITEM_SafetyScissors_NAME";
-		public override string ItemPickupDesc		=> "ITEM_SafetyScissors_PICKUP";
-		public override string ItemFullDescription	=> "ITEM_SafetyScissors_DESC";
-		public override string ItemLore				=> "ITEM_SafetyScissors_LORE";
+		public override string ItemLangTokenName	=> "DamageAndArmor";
 		public override ItemTier Tier				=> ItemTier.Tier1;
 		public override ItemTag[] ItemTags			=> [];
 		public override GameObject ItemModel		=> Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
@@ -38,7 +34,6 @@ namespace Rainbow.Items
 
 		// Initialize the item
 		public override void Init() {
-			CreateLang();
 			CreateItem();
 			Hooks();
 		}

@@ -4,17 +4,11 @@ using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-// DEFAULT EXAMPLE ITEM TODO OBLITERATE
-
 namespace Rainbow.Items
 {
-	public class CloakOnKill : ItemBase
+	public class AttackSpeedScarf : ItemBase
 	{
-		public override string ItemLangTokenName	=> "CLOAKONKILL";
-		public override string ItemName				=> "ITEM_CLOAKONKILL_NAME";
-		public override string ItemPickupDesc		=> "ITEM_CLOAKONKILL_PICKUP";
-		public override string ItemFullDescription	=> "ITEM_CLOAKONKILL_DESC";
-		public override string ItemLore				=> "ITEM_CLOAKONKILL_LORE";
+		public override string ItemLangTokenName	=> "AttackSpeedScarf";
 		public override ItemTier Tier				=> ItemTier.Tier2;
 		public override ItemTag[] ItemTags			=> [];
 		public override GameObject ItemModel		=> Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
@@ -47,7 +41,6 @@ namespace Rainbow.Items
 
 		// Initialize the item
 		public override void Init() {
-			CreateLang();
 			CreateItem();
 			Hooks();
 		}

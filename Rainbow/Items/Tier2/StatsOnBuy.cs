@@ -9,13 +9,9 @@ using static UnityEngine.UIElements.TextureRegistry;
 
 namespace Rainbow.Items
 {
-	public class SurveyIncentives : ItemBase
+	public class StatsOnBuy : ItemBase
 	{
-		public override string ItemLangTokenName	=> "SurveyIncentives";
-		public override string ItemName				=> "ITEM_SurveyIncentives_NAME";
-		public override string ItemPickupDesc		=> "ITEM_SurveyIncentives_PICKUP";
-		public override string ItemFullDescription	=> "ITEM_SurveyIncentives_DESC";
-		public override string ItemLore				=> "ITEM_SurveyIncentives_LORE";
+		public override string ItemLangTokenName	=> "StatsOnBuy";
 		public override ItemTier Tier				=> ItemTier.Tier2;
 		public override ItemTag[] ItemTags			=> [];
 		public override GameObject ItemModel		=> Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
@@ -64,7 +60,6 @@ namespace Rainbow.Items
 
 		// Initialize the item
 		public override void Init() {
-			CreateLang();
 			CreateItem();
 			Hooks();
 		}

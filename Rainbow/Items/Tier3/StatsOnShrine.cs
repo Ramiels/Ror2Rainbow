@@ -9,13 +9,9 @@ using static UnityEngine.UIElements.TextureRegistry;
 
 namespace Rainbow.Items
 {
-	public class PrayerGem : ItemBase
+	public class StatsOnShrine : ItemBase
 	{
-		public override string ItemLangTokenName	=> "PrayerGem";
-		public override string ItemName				=> "ITEM_PrayerGem_NAME";
-		public override string ItemPickupDesc		=> "ITEM_PrayerGem_PICKUP";
-		public override string ItemFullDescription	=> "ITEM_PrayerGem_DESC";
-		public override string ItemLore				=> "ITEM_PrayerGem_LORE";
+		public override string ItemLangTokenName	=> "StatsOnShrine";
 		public override ItemTier Tier				=> ItemTier.Tier3;
 		public override ItemTag[] ItemTags			=> [];
 		public override GameObject ItemModel		=> Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
@@ -64,7 +60,6 @@ namespace Rainbow.Items
 
 		// Initialize the item
 		public override void Init() {
-			CreateLang();
 			CreateItem();
 			Hooks();
 		}
