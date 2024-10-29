@@ -10,7 +10,7 @@ namespace Rainbow.ItemBodyBehaviors
 		[ItemDefAssociation(useOnServer = true, useOnClient = false)]
 		//[BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
 
-		public static ItemDef GetItemDef() => Rainbow.Items.AttackSpeedScarf.ItemDef;
+		private static ItemDef GetItemDef() => Rainbow.Items.AttackSpeedScarf.ItemDef;
 		private bool wasOutOfCombat = false;
 		private float buffTimer;
 		private SkillLocator skillLocator;
