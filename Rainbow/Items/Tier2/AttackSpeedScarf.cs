@@ -21,22 +21,7 @@ namespace Rainbow.Items
 
 		// Hook shit
 		public override void Hooks() {
-			GlobalEventManager.onCharacterDeathGlobal += (damageReport) => {
-				DamageReport report = damageReport;
-
-				// If a character was killed by the world, we shouldn't do anything.
-				if (!report.attacker || !report.attackerBody) { return; }
-
-				var attackerCharacterBody = report.attackerBody;
-
-				// We need an inventory to do check for our item
-				if (attackerCharacterBody.inventory) {
-					var garbCount = GetCount(attackerCharacterBody);
-					if (garbCount > 0 && Util.CheckRoll(50, attackerCharacterBody.master)) {
-						attackerCharacterBody.AddTimedBuff(RoR2Content.Buffs.Cloak, 3 + garbCount);
-					}
-				}
-			};
+			
 		}
 
 		// Initialize the item

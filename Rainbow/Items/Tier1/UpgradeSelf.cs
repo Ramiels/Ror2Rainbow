@@ -40,8 +40,7 @@ namespace Rainbow.Items
 				if (item == ItemDef.itemIndex && playerCount >= 4)
 				{
 					Log.Debug("Items go bye");
-					int remainder;
-					int quotient = Math.DivRem(playerCount, 4, out remainder);
+					int quotient = Math.DivRem(playerCount, 4, out int remainder);
 					inventory.RemoveItem(ItemDef, playerCount - remainder);
 					ItemDef[] greenList = ItemCatalog.allItemDefs.Where(itemDef => itemDef.tier == ItemTier.Tier2).ToArray();
 					while (quotient > 0) {

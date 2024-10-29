@@ -8,6 +8,7 @@ using Rainbow.Items;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Rainbow.Buffs;
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
 namespace Rainbow
@@ -37,6 +38,7 @@ namespace Rainbow
         public const string PluginVersion	= "0.1.0";
 
 		public List<ItemBase> Items = [];
+		public List<BuffBase> Buffs = [];
 		public static System.Random Rand = new();
 
 		public void Awake()
@@ -50,6 +52,16 @@ namespace Rainbow
 				ItemBase item = (ItemBase)System.Activator.CreateInstance(itemType);
 				item.Init();
 				//Log.Info("Item: " + item.ItemName + " Initialized!");
+			}
+
+            
+
+			Log.Info("----------------------ITEMS--------------------");
+			// Some code sorcery I divined and conjured into my codebase.
+			var BuffTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(BuffBase)));
+			foreach (var buffType in BuffTypes)	{
+				BuffBase buff = (BuffBase)System.Activator.CreateInstance(buffType);
+				buff.Init();
 			}
 
 			// Set our RNG per run
