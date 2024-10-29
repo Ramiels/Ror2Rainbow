@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using RoR2.Items;
+using RoR2.Projectile;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -9,14 +10,16 @@ using UnityEngine;
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 namespace Rainbow.ItemBodyBehaviors
 {
-	internal class GambogeScarfBehavior : BaseItemBodyBehavior
+	internal class AttackSpeedScarfBehavior : BaseItemBodyBehavior
 	{
 		[ItemDefAssociation(useOnServer = true, useOnClient = false)]
 		// [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
-		 
-		public static ItemDef GetItemDef() => Rainbow.Items.AttackSpeedScarf.ItemDef;
 
+		public static ItemDef GetItemDef() => Rainbow.Items.AttackSpeedScarf.ItemDef;
 		private bool providingBuff;
+		private bool wasOutOfCombat = false;
+		private float buffTimer;
+		private readonly float buffInterval = 10/ (6 + (4 * this.stack));
 
 		// Handle in/out of combat behavior
 		private void OnDisable()
@@ -30,35 +33,34 @@ namespace Rainbow.ItemBodyBehaviors
 
 		private void SetProvidingBuff(bool shouldProvideBuff)
 		{
-			if (shouldProvideBuff == this.providingBuff)
+			// Exited Combat
+			if ((wasOutOfCombat != shouldProvideBuff) && shouldProvideBuff)
 			{
-				return;
+				Log.Debug("Exited Combat");
+				this.buffTimer = 0f;
 			}
-			this.providingBuff = shouldProvideBuff;
-			if (this.providingBuff)
+			wasOutOfCombat = shouldProvideBuff;
+
+			// Timer (reset when exiting combat)
+			this.buffTimer -= Time.fixedDeltaTime;
+			if (this.buffTimer > 0f) { return; }
+			this.buffTimer = this.buffInterval;
+
+			// Apply stacks of buff based on item stacks
+			if (base.body.GetBuffCount(RoR2Content.Buffs.WhipBoost) < 6 + (4 * this.stack))
 			{
-				Log.Debug("HEY WE'RE DOING SHIT 11111111");
 				base.body.AddBuff(RoR2Content.Buffs.WhipBoost);
-				EffectData effectData = new EffectData();
-				effectData.origin = base.body.corePosition;
-				CharacterDirection characterDirection = base.body.characterDirection;
-				bool flag = false;
-				if (characterDirection && characterDirection.moveVector != Vector3.zero)
-				{
-					effectData.rotation = Util.QuaternionSafeLookRotation(characterDirection.moveVector);
-					flag = true;
-				}
-				if (!flag)
-				{
-					effectData.rotation = base.body.transform.rotation;
-				}
-				EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/SprintActivate"), effectData, true);
-				return;
 			}
-			base.body.RemoveBuff(RoR2Content.Buffs.WhipBoost);
 		}
 
+		// Consume stacks when attacking (todo replace buff)
+		private void OnSkillActivated(GenericSkill skill)
+		{
+			SkillLocator skillLocator = this.skillLocator;
+			if (((skillLocator != null) ? skillLocator.primary : null) == skill && this.body.GetBuffCount(RoR2Content.Buffs.WhipBoost) > 0)
+			{
+				base.body.RemoveBuff(RoR2Content.Buffs.WhipBoost);
+			}
+		}
 	}
 }
-
-

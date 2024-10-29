@@ -102,7 +102,7 @@
 		"ITEM_BouncyProjectiles_LORE": "Placeholder! Lore will come later <3.",
 		"ITEM_TriggerOnDamageOnKill_NAME": "Parasitic Cartridge",
 		"ITEM_TriggerOnDamageOnKill_PICKUP": "",
-		"ITEM_TriggerOnDamageOnKill_DESC": "On killing an enemy, trigger effects that require you to <style=cIsHealth>take damage</style> <style=cIsDamage>1</style> <style=cStack>(+1 per stack)</style> times.",
+		"ITEM_TriggerOnDamageOnKill_DESC": "On killing an enemy, trigger effects that require you to <style=cIsHealth>take damage</style> <style=cIsDamage>1</style> <style=cStack>(+1 per stack)</style> times. \nTaking damage <style=cIsUtility>reduces skill cooldowns</style> by <style=cIsUtility>0.5 seconds</style>.",
 		"ITEM_TriggerOnDamageOnKill_LORE": "Placeholder! Lore will come later <3.",
 		"ITEM_DamageFromBarrier_NAME": "Carnage Cestus",
 		"ITEM_DamageFromBarrier_PICKUP": "",
