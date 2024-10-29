@@ -1,10 +1,5 @@
 ﻿using RoR2;
 using RoR2.Items;
-using RoR2.Projectile;
-using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 using UnityEngine;
 
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
@@ -16,30 +11,39 @@ namespace Rainbow.ItemBodyBehaviors
 		// [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
 
 		public static ItemDef GetItemDef() => Rainbow.Items.AttackSpeedScarf.ItemDef;
-		private bool providingBuff;
 		private bool wasOutOfCombat = false;
 		private float buffTimer;
 		private readonly float buffInterval = 10/ (6 + (4 * this.stack));
+		private SkillLocator skillLocator;
 
-		// Handle in/out of combat behavior
+		// Handle setup/cleanup
 		private void OnDisable()
 		{
-			this.SetProvidingBuff(false);
+			if (this.body)
+			{
+				this.body.onSkillActivatedServer -= this.OnSkillActivated;
+				while (this.body.HasBuff(RoR2Content.Buffs.WhipBoost)) { this.body.RemoveBuff(RoR2Content.Buffs.WhipBoost); }
+			}
+			this.skillLocator = null;
 		}
-		private void FixedUpdate()
+		private void OnEnable()
 		{
-			this.SetProvidingBuff(base.body.outOfCombat);
+			if (this.body)
+			{
+				this.body.onSkillActivatedServer += this.OnSkillActivated;
+				this.skillLocator = this.body.GetComponent<SkillLocator>();
+			}
 		}
 
-		private void SetProvidingBuff(bool shouldProvideBuff)
+		private void FixedUpdate()
 		{
 			// Exited Combat
-			if ((wasOutOfCombat != shouldProvideBuff) && shouldProvideBuff)
+			if ((wasOutOfCombat != base.body.outOfCombat) && base.body.outOfCombat)
 			{
 				Log.Debug("Exited Combat");
 				this.buffTimer = 0f;
 			}
-			wasOutOfCombat = shouldProvideBuff;
+			wasOutOfCombat = base.body.outOfCombat;
 
 			// Timer (reset when exiting combat)
 			this.buffTimer -= Time.fixedDeltaTime;
@@ -57,7 +61,7 @@ namespace Rainbow.ItemBodyBehaviors
 		private void OnSkillActivated(GenericSkill skill)
 		{
 			SkillLocator skillLocator = this.skillLocator;
-			if (((skillLocator != null) ? skillLocator.primary : null) == skill && this.body.GetBuffCount(RoR2Content.Buffs.WhipBoost) > 0)
+			if ((skillLocator?.primary) == skill && this.body.GetBuffCount(RoR2Content.Buffs.WhipBoost) > 0)
 			{
 				base.body.RemoveBuff(RoR2Content.Buffs.WhipBoost);
 			}
