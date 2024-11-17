@@ -78,7 +78,7 @@
         <Copy SourceFiles="@(AdditionalPluginFiles)" DestinationFolder="$(PluginDir)" ContinueOnError="false" />
         
 		<!-- Small edit by Copi (ramiels) to make debugging easier - copies the plugin to my modding profile when I build. -->
-		<Copy SourceFiles="@(FilesToCopy)" DestinationFolder="C:\Users\$(USERNAME)\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\Modding\BepInEx\plugins\Rainbow\%(RecursiveDir)" />
+		<Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(ProfileDir)BepInEx\plugins\Rainbow\%(RecursiveDir)" />
 
         <ConvertToAbsolutePath Paths="$(ProductDir)">
             <Output TaskParameter="AbsolutePaths" PropertyName="AbsoluteProductDir" />
