@@ -15,6 +15,8 @@ namespace Rainbow.ItemBodyBehaviors
 		private float buffTimer;
 		private SkillLocator skillLocator;
 
+		private float tempTotal = 0f;
+
 		// Handle setup/cleanup
 		private void OnDisable()
 		{
@@ -38,8 +40,9 @@ namespace Rainbow.ItemBodyBehaviors
 		{
 			// Only work outside combat
 			if (!base.body.outOfCombat) { return; }
+			// Run code X times over 10 seconds
+			float buffInterval = 10f / (6 + (4 * this.stack));
 
-			int buffInterval = 10 / (3 + (2 * this.stack));
 			// Reset timer outside combat
 			if ((wasOutOfCombat != base.body.outOfCombat) && base.body.outOfCombat)
 			{
@@ -50,13 +53,19 @@ namespace Rainbow.ItemBodyBehaviors
 			// Timer (reset when exiting combat)
 			this.buffTimer += Time.fixedDeltaTime;
 			if (this.buffTimer < buffInterval) { return; }
-			this.buffTimer = 0;
+			this.buffTimer -= buffInterval;
 
 
 			// Apply stacks of buff based on item stacks
-			if (base.body.GetBuffCount(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]) < 3 + (2 * this.stack))
+			if (base.body.GetBuffCount(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]) < 6 + (4 * this.stack))
 			{
+				tempTotal += buffInterval;
 				base.body.AddBuff(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]);
+			}
+			else if ((base.body.GetBuffCount(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]) == 6 + (4 * this.stack)) && tempTotal > 0)
+			{
+				Log.Info(tempTotal);
+				tempTotal = 0;
 			}
 		}
 

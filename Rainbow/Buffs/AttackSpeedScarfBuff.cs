@@ -17,19 +17,18 @@ namespace Rainbow.Buffs
 		// Initialize the buff
 		public override void Init()
 		{
+			Hooks();
 			CreateBuff();
 		}
 		// Hook shit
 		public override void Hooks()
 		{
 			R2API.RecalculateStatsAPI.GetStatCoefficients += (sender, args) =>{
-				Log.Info("Gib Buf");
 				if (sender && sender.HasBuff(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"])) {
 					int count = sender.GetBuffCount(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]);
-					Log.Info(count);
 					if (count > 0)
 					{
-						args.attackSpeedMultAdd += 7 * count;
+						args.attackSpeedMultAdd += 0.07f * count;
 					}
 				}
 			};
