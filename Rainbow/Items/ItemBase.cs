@@ -2,6 +2,7 @@
 using RoR2;
 using UnityEngine;
 using BepInEx.Configuration;
+using System.Collections.Generic;
 
 namespace Rainbow.Items
 {
@@ -14,18 +15,21 @@ namespace Rainbow.Items
 		public virtual ItemTag[] ItemTags { get; } = [];
 		public virtual bool CanRemove { get; } = true;
 		public virtual bool Hidden { get; } = false;
-		public static ItemDef ItemDef;
-		// Graphics data
-		public abstract GameObject ItemModel { get; }
+        public ItemDef ItemDef;
+		public static Dictionary<string, ItemDef> ItemDefs = new Dictionary<string, ItemDef>();
+        // Graphics data
+        public abstract GameObject ItemModel { get; }
 		public abstract Sprite ItemIcon { get; }
 		public abstract ItemDisplayRuleDict CreateItemDisplayRules();
 		// Init func
 		public abstract void Init();
+
+
 		// Create item
 		protected void CreateItem()
 		{
 			// Create the itemdef and populate it with data
-			ItemDef						= ScriptableObject.CreateInstance<ItemDef>();
+			var ItemDef						= ScriptableObject.CreateInstance<ItemDef>();
 			ItemDef.name				= ItemLangTokenName;
 			ItemDef.nameToken			= "ITEM_" + ItemLangTokenName + "_NAME";
 			ItemDef.pickupToken			= "ITEM_" + ItemLangTokenName + "_PICKUP";
@@ -45,6 +49,9 @@ namespace Rainbow.Items
 			var itemDisplayRuleDict		= CreateItemDisplayRules();
 			// Add the item with our data
 			ItemAPI.Add(new CustomItem(ItemDef, itemDisplayRuleDict));
+
+			ItemDefs.Add(ItemLangTokenName, ItemDef);
+
 		}
 		// Hooks
 		public abstract void Hooks();
