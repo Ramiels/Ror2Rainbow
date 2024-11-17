@@ -18,17 +18,15 @@ namespace Rainbow.ItemBodyBehaviors
 		// Handle setup/cleanup
 		private void OnDisable()
 		{
-			Log.Info("Disabled!");
 			if (this.body)
 			{
 				this.body.onSkillActivatedServer -= this.OnSkillActivated;
-				while (this.body.HasBuff(Rainbow.Buffs.AttackSpeedScarfBuff.BuffDef)) { this.body.RemoveBuff(Rainbow.Buffs.AttackSpeedScarfBuff.BuffDef); }
+				while (this.body.HasBuff(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"])) { this.body.RemoveBuff(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]); }
 			}
 			this.skillLocator = null;
 		}
 		private void OnEnable()
 		{
-			Log.Info("Enabled!");
 			if (this.body)
 			{
 				this.body.onSkillActivatedServer += this.OnSkillActivated;
@@ -38,15 +36,13 @@ namespace Rainbow.ItemBodyBehaviors
 
 		private void FixedUpdate()
 		{
-			Log.Debug("FixedUpdated!");
 			// Only work outside combat
 			if (!base.body.outOfCombat) { return; }
 
-			int buffInterval = 10 / (6 + (4 * this.stack));
+			int buffInterval = 10 / (3 + (2 * this.stack));
 			// Reset timer outside combat
 			if ((wasOutOfCombat != base.body.outOfCombat) && base.body.outOfCombat)
 			{
-				Log.Debug("Exited Combat");
 				this.buffTimer = buffInterval;
 			}
 			wasOutOfCombat = base.body.outOfCombat;
@@ -55,23 +51,22 @@ namespace Rainbow.ItemBodyBehaviors
 			this.buffTimer += Time.fixedDeltaTime;
 			if (this.buffTimer < buffInterval) { return; }
 			this.buffTimer = 0;
-			Log.Debug("Tick!");
+
 
 			// Apply stacks of buff based on item stacks
-			if (base.body.GetBuffCount(Rainbow.Buffs.AttackSpeedScarfBuff.BuffDef) < 6 + (4 * this.stack))
+			if (base.body.GetBuffCount(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]) < 3 + (2 * this.stack))
 			{
-				base.body.AddBuff(Rainbow.Buffs.AttackSpeedScarfBuff.BuffDef);
+				base.body.AddBuff(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]);
 			}
 		}
 
 		// Consume stacks when attacking (todo replace buff)
 		private void OnSkillActivated(GenericSkill skill)
 		{
-			Log.Info("SkillActivated!");
 			SkillLocator skillLocator = this.skillLocator;
-			if ((skillLocator?.primary) == skill && this.body.GetBuffCount(Rainbow.Buffs.AttackSpeedScarfBuff.BuffDef) > 0)
+			if ((skillLocator?.primary) == skill && this.body.GetBuffCount(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]) > 0)
 			{
-				base.body.RemoveBuff(Rainbow.Buffs.AttackSpeedScarfBuff.BuffDef);
+				base.body.RemoveBuff(Buffs.BuffBase.BuffDefs["AttackSpeedScarf"]);
 			}
 		}
 	}

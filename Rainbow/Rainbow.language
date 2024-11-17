@@ -62,7 +62,7 @@
 		"ITEM_MagnetizeOnHit_LORE": "Placeholder! Lore will come later <3.",
 		"ITEM_AttackSpeedScarf_NAME": "Gamboge Scarf",
 		"ITEM_AttackSpeedScarf_PICKUP": "",
-		"ITEM_AttackSpeedScarf_DESC": "While outside combat gain <style=cIsDamage>Courage</style>, increasing <style=cIsDamage>attack speed</style> by <style=cIsDamage>7%</style>. \nYou can have up to <style=cIsUtility>10</style> <style=cStack>(+4 per stack)</style> stacks of <style=cIsDamage>Courage</style> which all accumulate over <style=cIsUtility>10</style> seconds while out of combat. \nA stack of <style=cIsDamage>Courage</style> is lost on attacking.",
+		"ITEM_AttackSpeedScarf_DESC": "While outside combat gain <style=cIsDamage>Courage</style>, increasing <style=cIsDamage>attack speed</style> by <style=cIsDamage>7%</style>. \nYou can have up to <style=cIsUtility>5</style> <style=cStack>(+2 per stack)</style> stacks of <style=cIsDamage>Courage</style> which all accumulate over <style=cIsUtility>10</style> seconds while out of combat. \nA stack of <style=cIsDamage>Courage</style> is lost on attacking.",
 		"ITEM_AttackSpeedScarf_LORE": "Placeholder! Lore will come later <3.",
 		"ITEM_StatsOnBuy_NAME": "Torn Reciept",
 		"ITEM_StatsOnBuy_PICKUP": "",

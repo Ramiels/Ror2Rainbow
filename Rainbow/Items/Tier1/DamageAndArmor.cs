@@ -23,7 +23,7 @@ namespace Rainbow.Items
 		public override void Hooks() {
 			RecalculateStatsAPI.GetStatCoefficients += (sender, args) => {
                 if (sender && sender.inventory) {
-                    int count = sender.inventory.GetItemCount(ItemDef);
+                    int count = sender.inventory.GetItemCount(Items.ItemBase.ItemDefs["DamageAndArmor"]);
                     if (count > 0) {
                         args.armorAdd += count * 6;
                         args.damageMultAdd += count * 0.06f;

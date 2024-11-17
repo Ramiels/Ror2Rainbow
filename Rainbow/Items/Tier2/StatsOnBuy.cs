@@ -33,7 +33,7 @@ namespace Rainbow.Items
 			// Set the accrued stats
 			RecalculateStatsAPI.GetStatCoefficients += (sender, args) => {
 				if (sender && sender.inventory) {
-					int count = sender.inventory.GetItemCount(ItemDef);
+					int count = sender.inventory.GetItemCount(Items.ItemBase.ItemDefs["StatsOnBuy"]);
 					if (count > 0) {
 						var stats = 0;
 						args.healthMultAdd		+= stats;

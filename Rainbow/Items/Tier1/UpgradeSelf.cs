@@ -26,7 +26,7 @@ namespace Rainbow.Items
 			// Grant +5% HP per stack
 			RecalculateStatsAPI.GetStatCoefficients += (sender, args) => {
 				if (sender && sender.inventory) {
-					int count = sender.inventory.GetItemCount(ItemDef);
+					int count = sender.inventory.GetItemCount(Items.ItemBase.ItemDefs["UpgradeSelf"]);
 					if (count > 0) {
 						args.healthMultAdd += count * 0.05f;
 					}
@@ -36,12 +36,13 @@ namespace Rainbow.Items
 			// Turn into a green item if you have 4+ stacks
 			// TODO: V/S-FX
 			Inventory.onServerItemGiven += (inventory, item, count) => {
-				var playerCount = inventory.GetItemCount(ItemDef);
-				if (item == ItemDef.itemIndex && playerCount >= 4)
+				var def = Items.ItemBase.ItemDefs["UpgradeSelf"];
+				var playerCount = inventory.GetItemCount(def);
+				if (item == def.itemIndex && playerCount >= 4)
 				{
 					Log.Debug("Items go bye");
 					int quotient = Math.DivRem(playerCount, 4, out int remainder);
-					inventory.RemoveItem(ItemDef, playerCount - remainder);
+					inventory.RemoveItem(def, playerCount - remainder);
 					ItemDef[] greenList = ItemCatalog.allItemDefs.Where(itemDef => itemDef.tier == ItemTier.Tier2).ToArray();
 					while (quotient > 0) {
 						quotient--;
